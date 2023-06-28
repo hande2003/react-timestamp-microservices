@@ -24,7 +24,10 @@ nextApp.prepare().then(() => {
   app.use(bodyParser.json());
 
   app.get("/api", (req, res) => {
-    res.json({ unix: new Date().valueOf(), UTC: new Date().toUTCString() });
+    res.status(200).json({
+      unix: new Date().valueOf(),
+      UTC: new Date().toUTCString(),
+    });
   });
 
   app.use("/api", date);
@@ -34,5 +37,9 @@ nextApp.prepare().then(() => {
   });
 
   let PORT = process.env.PORT || 3000;
-  app.listen(PORT, () => console.log(`Node is listening on port ${PORT}...`));
+  app.listen(PORT, () =>
+    console.log(
+      `Node is listening on port ${PORT}. Go to http://localhost:${PORT}`
+    )
+  );
 });

@@ -34,6 +34,7 @@ function Main() {
       (err) => {
         alert("Invalid Date Format");
         document.getElementById("date").value = "";
+        setActionAPI(() => "/api");
       }
     );
   }, [actionAPI]);
