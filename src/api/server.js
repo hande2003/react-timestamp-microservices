@@ -43,3 +43,5 @@ nextApp.prepare().then(() => {
     )
   );
 });
+
+module.exports = nextApp;
